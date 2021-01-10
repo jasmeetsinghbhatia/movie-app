@@ -7,6 +7,8 @@ import SearchBox from "./components/SearchBox";
 import AddFavorites from "./components/AddFavorites";
 import RemoveFavorites from "./components/RemoveFavorites";
 
+require("dotenv").config();
+
 function App() {
   const [movies, setMovies] = useState([]);
   const [favorites, setFavorites] = useState([]);
