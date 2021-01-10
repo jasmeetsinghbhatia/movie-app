@@ -12,17 +12,14 @@ require("dotenv").config();
 function App() {
   const [movies, setMovies] = useState([]);
   const [favorites, setFavorites] = useState([]);
-  const [searchValue, setSearchValue] = useState("Kadet 1947");
+  const [searchValue, setSearchValue] = useState("");
 
   const APIKEY = process.env.REACT_APP_API_KEY;
   const getMovieRequest = async (searchValue) => {
     const url = `https://www.omdbapi.com/?s=${searchValue}&apikey=${APIKEY}`;
     console.log(url);
     const response = await fetch(url);
-    console.log(response);
-
     const responseJson = await response.json();
-    console.log(responseJson);
     if (responseJson.Search) {
       setMovies(responseJson.Search);
     }
@@ -36,7 +33,9 @@ function App() {
     const movieFavorites = JSON.parse(
       localStorage.getItem("react-movie-app-favorites")
     );
-    setFavorites(movieFavorites);
+    if (movieFavorites) {
+      setFavorites(movieFavorites);
+    }
   }, []);
   const saveToLocalStorage = (items) => {
     localStorage.setItem("react-movie-app-favorites", JSON.stringify(items));
