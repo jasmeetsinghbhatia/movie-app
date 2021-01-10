@@ -14,9 +14,9 @@ function App() {
   const [favorites, setFavorites] = useState([]);
   const [searchValue, setSearchValue] = useState("2021");
 
-  const apiKey = process.env.REACT_APP_APIKey;
+  const APIKEY = process.env.REACT_APP_APIKey;
   const getMovieRequest = async (searchValue) => {
-    const url = `https://www.omdbapi.com/?s=${searchValue}&apikey=${apiKey}`;
+    const url = `https://www.omdbapi.com/?s=${searchValue}&apikey=${APIKEY}`;
     const response = await fetch(url);
 
     const responseJson = await response.json();
