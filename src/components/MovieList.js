@@ -4,7 +4,7 @@ const MovieList = (props) => {
   const FavoriteComponent = props.FavoriteComponent;
   return (
     <>
-      {props.movies.map((movie, index) => (
+      {props.movies.map((movie) => (
         <div
           className="image-container d-flex jutify-content-start m-3"
           key={movie.imdbID}

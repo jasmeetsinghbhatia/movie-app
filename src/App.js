@@ -19,8 +19,10 @@ function App() {
     const url = `https://www.omdbapi.com/?s=${searchValue}&apikey=${APIKEY}`;
     console.log(url);
     const response = await fetch(url);
+    console.log(response);
 
     const responseJson = await response.json();
+    console.log(responseJson);
     if (responseJson.Search) {
       setMovies(responseJson.Search);
     }
