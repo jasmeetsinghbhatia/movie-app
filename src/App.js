@@ -12,7 +12,7 @@ require("dotenv").config();
 function App() {
   const [movies, setMovies] = useState([]);
   const [favorites, setFavorites] = useState([]);
-  const [searchValue, setSearchValue] = useState("");
+  const [searchValue, setSearchValue] = useState("Kadet 1947");
 
   const APIKEY = process.env.REACT_APP_API_KEY;
   const getMovieRequest = async (searchValue) => {
